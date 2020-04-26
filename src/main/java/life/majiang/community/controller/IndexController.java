@@ -1,9 +1,15 @@
 package life.majiang.community.controller;
 
+import life.majiang.community.mapper.UserMapper;
+import life.majiang.community.model.User;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
 
 /**
  * @author donghj
@@ -13,15 +19,29 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class IndexController {
 
-    @GetMapping("/index")
-    public String index(@RequestParam(name = "name", defaultValue = "hello") String name, Model model) {
-        model.addAttribute("name", name);
+    @Autowired
+    private UserMapper userMapper;
+
+    /**
+     * 持久化存储cookie
+     * 从HttpServletRequest中获取cookie，遍历cookie从中取出token，通过token在user表中查找对应的user，将user存储到session中
+     * @param request request请求
+     * @return 页面
+     */
+    @GetMapping({"/index", "/"})
+    public String index(HttpServletRequest request) {
+        Cookie[] cookies = request.getCookies();
+        for (Cookie cookie:cookies) {
+            if (cookie.getName().equals("token")) {
+                String token = cookie.getValue();
+                User user = userMapper.findByToken(token);
+                if (user != null) {
+                    request.getSession().setAttribute("user", user);
+                }
+                break;
+            }
+        }
         return "index";
     }
 
-    @GetMapping("/")
-    public String index1(@RequestParam(name = "name", defaultValue = "hello") String name, Model model) {
-        model.addAttribute("name", name);
-        return "index";
-    }
 }
