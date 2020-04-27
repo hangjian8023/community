@@ -63,16 +63,18 @@ public class PublishController {
         question.setTitle(title);
         // 从登录cookie中取token从而查找用户id
         Cookie[] cookies = request.getCookies();
-        for (Cookie cookie:cookies) {
-            if (cookie.getName().equals("token")) {
-                String token = cookie.getValue();
-                User user = userMapper.findByToken(token);
-                if (user == null) {
-                    model.addAttribute("error", "用户未登录");
-                    return "publish";
+        if (cookies != null && cookies.length != 0) {
+            for (Cookie cookie:cookies) {
+                if (cookie.getName().equals("token")) {
+                    String token = cookie.getValue();
+                    User user = userMapper.findByToken(token);
+                    if (user == null) {
+                        model.addAttribute("error", "用户未登录");
+                        return "publish";
+                    }
+                    else
+                        question.setCreator(user.getId());
                 }
-                else
-                    question.setCreator(user.getId());
             }
         }
         questionMapper.insertQuestion(question);
