@@ -13,7 +13,8 @@
 <nav class="navbar navbar-default">
     <div class="container-fluid">
         <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
                 <span class="sr-only">社区</span>
             </button>
             <a class="navbar-brand" href="#">社区</a>
@@ -48,64 +49,70 @@
         <div class="col-lg-9 col-md-12 col-sm-12 col-xm-12">
             <h2><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> 发起</h2>
             <hr>
-            <form action="">
+            <form action="/publish" method="post">
                 <div class="form-group">
                     <label for="title">问题标题(简单扼要):</label>
-                    <input type="text" class="form-control" id="title" name="title" placeholder="问题标题...">
+                    <input type="text" class="form-control" th:value="${title}" id="title" name="title" placeholder="问题标题...">
                 </div>
                 <div class="form-group">
                     <label for="description">问题补充(必填，请参照右侧提示):</label>
-                    <textarea class="form-control" id="description" name="description" cols="3" rows="11"></textarea>
+                    <textarea class="form-control" id="description" th:value="${description}" name="description" cols="3" rows="11"></textarea>
                 </div>
                 <div class="form-group">
                     <label for="tag">添加标签:</label>
-                    <input type="text" class="form-control" id="tag" name="tag" placeholder="输入标签以,分隔">
+                    <input type="text" class="form-control" id="tag" th:value="${tag}" name="tag" placeholder="输入标签以,分隔">
                 </div>
-                <button class="btn btn-success" style="float: right;">发布</button>
+                <div class="container-fluid main">
+                    <div class="alert alert-danger col-lg-9 col-md-12 col-sm-12 col-xs-12" th:text="${error}"
+                         th:if="${error != null}"></div>
+                    <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
+                        <button class="btn btn-success" style="float: right;" type="submit">发布</button>
+                    </div>
+                </div>
             </form>
         </div>
         <div class="col-lg-3 col-md-12 col-sm-12 col-xm-12">
-            一分快三大神带回血+蔻11702076老师叩：117~020~76使用默认的随机源随机排列指定的列表。(打乱list中的数据)sort(List<T> list) 进行排序一个人，身边有多少人，就有
+            一分快三大神带回血+蔻11702076老师叩：117~020~76使用默认的随机源随机排列指定的列表。(打乱list中的数据)sort(List
+             list) 进行排序一个人，身边有多少人，就有
 
-            多大的世界，有什么样的人，就有什么样的世界。这些人素养的高低，决定了你的高雅与低俗、辽远与浅狭、明媚与卑琐。一句话，他人的质
+                多大的世界，有什么样的人，就有什么样的世界。这些人素养的高低，决定了你的高雅与低俗、辽远与浅狭、明媚与卑琐。一句话，他人的质
 
-            量，就是你的世界的质量。
+                量，就是你的世界的质量。
 
-            在自然的山水里，无论走多远，最后还要回到这群人当中。也就是说，你最终要回到自己的世界里来。远足，是心
+                在自然的山水里，无论走多远，最后还要回到这群人当中。也就是说，你最终要回到自己的世界里来。远足，是心
 
-            灵的沐洗，是换一种方式让精神突围，是以自然的视觉，看清人的世界。
+                灵的沐洗，是换一种方式让精神突围，是以自然的视觉，看清人的世界。
 
-            身边的世界，总有你不喜欢的人，总有你厌弃的事，这些必然要来到
+                身边的世界，总有你不喜欢的人，总有你厌弃的事，这些必然要来到
 
-            生命中，它们来到，只是为揭示生活的真相，告诉你生活是怎么一回事。
+                生命中，它们来到，只是为揭示生活的真相，告诉你生活是怎么一回事。
 
-            一个人的强大，就是能与不堪的人和事周旋，最终，战胜懦弱卑怯的
+                一个人的强大，就是能与不堪的人和事周旋，最终，战胜懦弱卑怯的
 
-            自己。你救不起道德沦丧，但在一大片道德沦丧里，你可以选择自己巍然挺立。
+                自己。你救不起道德沦丧，但在一大片道德沦丧里，你可以选择自己巍然挺立。
 
-            诸事放下，一切皆胜。放不下，自挣不脱。一个人，能释怀，
+                诸事放下，一切皆胜。放不下，自挣不脱。一个人，能释怀，
 
-            才能释然，能在内心修篱种菊，自不必避车马喧嚣。走千里万里，逃不出自我的喧嚣，就逃不开尘世的喧闹。也就是说，你安静下来了，这个
+                才能释然，能在内心修篱种菊，自不必避车马喧嚣。走千里万里，逃不出自我的喧嚣，就逃不开尘世的喧闹。也就是说，你安静下来了，这个
 
-            尘世也就安静下来了。
+                尘世也就安静下来了。
 
-            不会每一个人都不合你的胃口。如果你总是讨厌别人，那么先讨厌了这个爱讨厌别人的自己。先打倒狭隘的自己，才能
+                不会每一个人都不合你的胃口。如果你总是讨厌别人，那么先讨厌了这个爱讨厌别人的自己。先打倒狭隘的自己，才能
 
-            接纳宽广的世界。
+                接纳宽广的世界。
 
-            人往高处走，不是物质上追慕富贵，而是在精神层面上，与那些品高境阔的人交往。相看两不厌，是因了趣味近;相嬉两不忘
+                人往高处走，不是物质上追慕富贵，而是在精神层面上，与那些品高境阔的人交往。相看两不厌，是因了趣味近;相嬉两不忘
 
-            ，是因了志向合。然后，山高水阔，相约走天涯。
+                ，是因了志向合。然后，山高水阔，相约走天涯。
 
-            道不同不相与谋，其实说的就是不在一个世界的人，自难在一个语言系统。人生，有时候会
+                道不同不相与谋，其实说的就是不在一个世界的人，自难在一个语言系统。人生，有时候会
 
-            有一些小悲剧。譬如，你流落到了不喜欢的世界，已经够悲哀了，却还要悲怆地强颜欢笑，跟不喜欢的人，把貌合神离表演成情投意合，把厌
+                有一些小悲剧。譬如，你流落到了不喜欢的世界，已经够悲哀了，却还要悲怆地强颜欢笑，跟不喜欢的人，把貌合神离表演成情投意合，把厌
 
-            恶表演成亲昵，把痛苦表演为快乐。
+                恶表演成亲昵，把痛苦表演为快乐。
         </div>
     </div>
 </div>
-
 
 
 </body>
