@@ -6,6 +6,8 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 
+import java.util.List;
+
 /**
  * @author donghj
  * @version 1.0
@@ -20,4 +22,7 @@ public interface QuestionMapper {
 
     @Select("select * from user where token=#{token}")
     Question findByQuestion(@Param("token") String token);
+
+    @Select("select * from question")
+    List<Question> findAll();
 }
