@@ -25,7 +25,6 @@ public class QuestionService {
     @Autowired
     private QuestionMapper questionMapper;
 
-
     public List<QuestionDto> findAll() {
         List<Question> questions = questionMapper.findAll();
         List<QuestionDto> questionDtos = new ArrayList<>();

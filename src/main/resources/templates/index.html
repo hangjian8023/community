@@ -21,7 +21,7 @@
                         • <span th:text="${questionDto.user.name}" class="text-creator"></span> 发表了文章
                         • <span th:text="${questionDto.commentCount}" class="text-comment"></span> 个评论
                         • <span th:text="${questionDto.viewCount}" class="text-view"></span> 次浏览
-                        • <span th:text="${#dates.format(questionDto.gmtCreate, 'yyyy MMMM dd')}" class="text-time"></span>
+                        • <span th:text="${#dates.format(questionDto.gmtCreate, 'yyyy-MM-dd HH:mm')}" class="text-time"></span>
                     </span>
                 </div>
             </div>

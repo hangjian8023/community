@@ -22,10 +22,14 @@
                     <input type="text" class="form-control" id="tag" th:value="${tag}" name="tag" placeholder="输入标签以,分隔">
                 </div>
                 <div class="container-fluid main">
-                    <div class="alert alert-danger col-lg-9 col-md-12 col-sm-12 col-xs-12" th:text="${error}"
-                         th:if="${error != null}"></div>
+                    <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12" >
+                        <div class="alert alert-danger col-lg-9 col-md-12 col-sm-12 col-xs-12" th:text="${error}"
+                             th:if="${error != null}">
+
+                        </div>
+                    </div>
                     <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
-                        <button class="btn btn-success" style="float: right;" type="submit">发布</button>
+                        <button class="btn btn-success" type="submit">发布</button>
                     </div>
                 </div>
             </form>
