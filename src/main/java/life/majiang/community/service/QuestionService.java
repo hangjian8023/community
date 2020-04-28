@@ -9,6 +9,7 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -27,12 +28,14 @@ public class QuestionService {
 
     public List<QuestionDto> findAll() {
         List<Question> questions = questionMapper.findAll();
+        List<QuestionDto> questionDtos = new ArrayList<>();
         for (Question question : questions) {
             User user = userMapper.findById(question.getCreator());
             QuestionDto questionDto = new QuestionDto();
             BeanUtils.copyProperties(question, questionDto);
             questionDto.setUser(user);
+            questionDtos.add(questionDto);
         }
-        return null;
+        return questionDtos;
     }
 }

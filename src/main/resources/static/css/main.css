@@ -25,17 +25,23 @@
     height: 40px;
 }
 
-.title {
+.text-title {
     color: #155faa;
     cursor: pointer;
 }
 
-.title:hover {
+.text-title:hover {
     color: #499ef3;
 }
-
 .text-color {
     font-size: 12px;
     font-weight: normal;
     color: #999;
+}
+.text-time {
+    display: inline-block;
+    width: 100px;
+}
+.text-creator {
+    font-weight: bold;
 }

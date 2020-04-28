@@ -8,15 +8,21 @@
         <div class="col-lg-9 col-md-12 col-sm-12 col-xm-12">
             <h2><span class="glyphicon glyphicon-list" aria-hidden="true"></span>发现</h2>
             <hr>
-            <div class="media" th:each="">
+            <div class="media" th:if="${questionDtos != null}" th:each="questionDto : ${questionDtos}">
                 <div class="media-left">
                     <a href="#">
-                        <img class="media-object img-small img-rounded" th:src="@{/one.jpg}">
+                        <img class="media-object img-small img-rounded" th:src="${questionDto.user.avatarUrl}">
                     </a>
                 </div>
                 <div class="media-body">
-                    <h4 class="media-heading title">如何快速学会 spring boot开发</h4>
-                    <span class="text-color">• elk123 发表了文章 • 0 个评论 • 12 次浏览 • 1 小时前</span>
+                    <h4 class="media-heading text-title" th:text="${questionDto.title}">如何快速学会 spring boot开发</h4>
+                    <span th:text="${questionDto.tag}" class="label label-default text-tag"></span>
+                    <span class="text-color">
+                        • <span th:text="${questionDto.user.name}" class="text-creator"></span> 发表了文章
+                        • <span th:text="${questionDto.commentCount}" class="text-comment"></span> 个评论
+                        • <span th:text="${questionDto.viewCount}" class="text-view"></span> 次浏览
+                        • <span th:text="${#dates.format(questionDto.gmtCreate, 'yyyy MMMM dd')}" class="text-time"></span>
+                    </span>
                 </div>
             </div>
         </div>

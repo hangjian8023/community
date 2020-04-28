@@ -49,9 +49,9 @@ public class IndexController {
                 }
             }
         }
-        List<QuestionDto> questions = questionService.findAll();
-        model.addAttribute("questions", questions);
+        // 查找所有question信息，并且保存至questionDtos
+        List<QuestionDto> questionDtos = questionService.findAll();
+        model.addAttribute("questionDtos", questionDtos);
         return "index";
     }
-
 }

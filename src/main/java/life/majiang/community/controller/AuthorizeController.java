@@ -54,7 +54,6 @@ public class AuthorizeController {
             // 并且把token放到cookie里面
         String accessToken = githubProvider.getAccessToken(accessTokenDTO);
         GithubUser githubUser = githubProvider.getUser(accessToken);
-        System.out.println(githubUser);
         if (githubUser != null) {
             // 往数据库中添加user对象
             User user = new User();
