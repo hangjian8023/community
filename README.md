@@ -44,7 +44,7 @@ alter TABLE user ADD avatar_url VARCHAR(256);
 6. idea默认没有安装lombok插件
     - 在setting中plugins添加lombok插件
 7. 提效chrome插件介绍
-    - 
+
 
 
 
