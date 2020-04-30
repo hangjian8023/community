@@ -28,6 +28,7 @@ public class QuestionService {
 
     public PaginationDto findAll(Integer page, Integer size) {
         Integer offset = (page - 1) * size;
+        System.out.println();
         List<Question> questions = questionMapper.findAll(offset, size);
         List<QuestionDto> questionDtos = new ArrayList<>();
         PaginationDto paginationDto = new PaginationDto();

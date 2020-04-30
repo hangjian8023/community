@@ -23,10 +23,9 @@ public interface QuestionMapper {
     @Select("select * from user where token=#{token}")
     Question findByQuestion(@Param("token") String token);
 
-    @Select("select * from question limit #{size}, #{offset}")
-    List<Question> findAll(@Param("offset") Integer offset,@Param("size")  Integer size);
+    @Select("select * from question limit #{size} offset #{offset}")
+    List<Question> findAll(@Param("offset") Integer offset, @Param("size") Integer size);
 
     @Select("select count(1) from question")
     Integer count();
-
 }
